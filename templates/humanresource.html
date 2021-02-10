@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<style type="text/css">
+	form input{
+		padding: 10px;
+        margin: 5px;
+	}
+</style>
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container-fluid w-100 mt-0 p-0">
+      <h1  style="text-align: center;">Human Resource Analysis</h1>
+<center>
+          <form action="/humanpredict" method="post">
+
+
+		<input type="text" name="city" placeholder="City (1-180)" required="required">
+		<input type="text" name="city_developement_index" placeholder="City development index (0.44-0.94)" required="required">
+		<select name="gender" id="gender" required="required">
+			<option value="1">Male</option>
+			<option value="0">Female</option>
+		</select>
+		<select name="relevent_experience" id="Relevent Experience" required="required">
+			<option value="1">Have relevent experience</option>
+			<option value="0">No relevent experience</option>
+		</select>
+		<select name="enrolled_university" id="Enrolled University" required="required">
+			<option value="0">No enrollment</option>
+			<option value="1">Part time course</option>
+			<option value="2">Full time course</option>
+		</select>
+		<select name="education_level" id="Education level" required="required">
+			<option value="1">Primary school</option>
+			<option value="2">High school</option>
+			<option value="3">Graduate</option>
+			<option value="4">Maters</option>
+			<option value="5">Phd</option>
+		</select>
+		<input type="text" name="experience" placeholder="Experience" required="required">
+		<select name="company_size" id="Company size" required="required">
+			<option value="1">Small size</option>
+			<option value="2">Medium size</option>
+			<option value="3">Large size</option>
+		</select>
+		<input type="text" name="last_new_job" placeholder="Last new job" required="required">
+		<input type="text" name="training_hours" placeholder="Training hours" required="required">
+		<select name="major_discipline" id="Major discipline" required="required">
+			<option value="Arts">Arts</option>
+			<option value="Bussiness Degree">Bussiness Degree</option>
+			<option value="Humanities">Humanities</option>
+			<option value="STEM">STEM</option>
+			<option value="No Major">No major</option>
+		</select>
+		<select name="company_type" id="Company type" required="required">
+			<option value="Early Stage Startup">Early_Stage_Startup</option>
+			<option value="Funded Startup">Funded_Startup</option>
+			<option value="NGO">NGO</option>
+			<option value="Other">Other</option>
+			<option value="Public Sector">Public sector</option>
+			<option value="Pvt Ltd">Pvt Ltd</option>
+		</select>
+
+        <!-- Show button -->
+        <div class="button_cont w-25" align="center"><a class="button_css" href="http://bit.ly/breast-cancer-ml-project" target="_blank" rel="nofollow noopener">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict</strong></button></a>
+        </div>
+        
+
+    </form>
+    </center>
+
+     </div>
+
+       	<center><div class="container-fluid w-50">
+			{% if prediction== 1 %}
+
+				<h3>Prediction:Great..!You have a resources</h3>
+
+			{% elif prediction== 0 %}
+				<h3>Prediction:Oopes...!No you have not</h3>
+
+			{% endif %}
+		</div> </center>	
+
+    </section>
+   </main>
+
+
+ {% endblock %}

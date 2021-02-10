@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<body background="https://medicaldialogues.in/h-upload/2020/10/31/141673-admission.jpg">
+    <div class="content">
+        <h1 align="center" style="color : white">Predict Your chances for Admission in to the UCLA</h1>
+
+        <div class="form">
+            <form action="/predictadmin" method="POST">
+                <input type="number" name="gre_score" id="gre_score" placeholder="GRE Score eg.310">
+                <input type="number" name="toefl_score" id="toefl_score" placeholder="TOEFL Score eg.110">
+                <input type="number" name="university_rating" id="university_rating" placeholder="University Rating eg.3">
+                <input type="number" name="sop" id="sop" placeholder="SOP Score eg.3">
+                <input type="number" name="lor" id="lor" placeholder="LOR Score eg.4">
+                <input type="number" name="cgpa" id="cgpa"placeholder="CGPA eg.7.8" step="any">
+                <select name="research" id="research">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+                <input type="submit" value="Predict">
+            </form>
+            <h3 align="center" style="color: white"> {{ prediction }} </h3>
+        </div>
+        <div class='footer'>
+               <div class="contact">
+                   <a target="_blank" href="https://www.linkedin.com/in/praneeth-kumar-84a15317b/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+               </div>
+               <p class='footer-description'>Made with ❤️ by Praneeth Kumar.</p>
+           </div>
+
+</body>
+
+
+
+{% endblock %}

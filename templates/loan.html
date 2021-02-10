@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container mt-0 p-0">
+      <h1  style="text-align: center;">Loan Approval Prediction</h1>
+     <!--  <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
+
+ <form action="/loanpredict" method="post">
+
+
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="dependents"  name="dependents" placeholder="Dependents (0-3)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="loanAmount"  name="loanAmount" placeholder="LoanAmount (9-700)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="loan_amount_term" name="loan_amount_term" placeholder="Loan amount term (12-480)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="credit_history" name="credit_history" placeholder="Credit history (1,0)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="total_income"  name="total_income" placeholder="Total income">
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="married" id="married" >Married:</label>
+      <select name="married" id="married" required="required">
+          <option value="Married No">NO</option>
+          <option value="Married Yes">Yes</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="gender" id="gender">Gender:</label>
+      <select name="gender" id="gender" required="required">
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="education" id="education">Education:</label>
+      <select name="education" id="education" required="required">
+          <option value="Graduate">Graduate</option>
+          <option value="Not Graduate">Not Graduate</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="self" id="self">Self:</label>
+      <select name="self" id="self" required="required">
+          <option value="self_No">No</option>
+          <option value="self_Yes">Yes</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="property_area" id="property_area">Property Area:</label>
+      <select name="property_area" id="property_area" required="required">
+          <option value="Rural">Rural</option>
+          <option value="Semiurban">Semiurban</option>
+          <option value="Urban">Urban</option>
+
+      </select>
+  <input type="submit" class="btn btn-success" value="Predict">
+  </form>
+
+    </div>
+
+    		<div class="container-fluid w-50">
+			{% if prediction==1 %}
+				<h3 align="center">Prediction:Congratulations! Your loan amount is approved</h3>
+
+			{% elif prediction==0 %}
+				<h3 align="center">Prediction:Sorry..! Your not eligible for these loan</h3>
+
+			{% endif %}
+		</div>
+
+
+
+
+
+  </section>
+
+  </main>
+
+
+
+
+ {% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container mt-0 p-4">
+      <h1  style="text-align: center;">Heart Disease Prediction</h1>
+
+
+ <form action="/heartpredict" method="post">
+
+    <div class="form-group">
+      <input type="number" class="form-control" id="age"  name="age" placeholder="Enter Your Age">
+    </div>
+
+    <div align="center" class="form-group">
+      <select name="sex" id="sex" required="required">
+          <option value="sex_1">Male</option>
+          <option value="sex_0">Female</option>
+      </select>
+
+    </div>
+
+    <div align="center" class="form-group">
+        <label for="cp">Chest pain:</label>
+        <select name="cp"  id="cp" required="required">
+          <option value="cp_0">CP-0</option>
+          <option value="cp_1">CP-1</option>
+          <option value="cp_2">CP-2</option>
+          <option value="cp_3">CP-3</option>
+        </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="fbs">Fasting blood sugar:</label>
+      <select name="fbs" id="fbs" required="required">
+          <option value="fbs_0">FBS-0</option>
+          <option value="fbs_1">FBS-1</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="restecg">resting electrocardiographic:</label>
+      <select name="restecg" id="restecg" required="required">
+          <option value="restecg_0">Restecg-0</option>
+          <option value="restecg_1">Restecg-1</option>
+          <option value="restecg_2">Restecg-2</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="exang">Exercise induced angina</label>
+      <select name="exang" id="exang" required="required">
+          <option value="exang_0">Exang-0</option>
+          <option value="exang_1">Exang-1</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="slope">Slope:</label>
+      <select name="slope" id="slope" required="required">
+          <option value="slope_0">Slope-0</option>
+          <option value="slope_1">Slope-1</option>
+          <option value="slope_2">Slope-2</option>
+      </select>
+    </div>
+
+     <div align="center" class="form-group">
+      <label for="ca">CA:</label>
+      <select name="ca" id="ca" required="required">
+          <option value="ca_0">CA-0</option>
+          <option value="ca_1">CA-1</option>
+          <option value="ca_2">CA-2</option>
+          <option value="ca_3">CA-3</option>
+          <option value="ca_4">CA-4</option>
+      </select>
+    </div>
+
+      <div align="center" class="form-group">
+      <label for="thal">Thalassemia</label>
+      <select name="thal" id="thal" required="required">
+          <option value="thal_0">Thal-0</option>
+          <option value="thal_1">Thal-1</option>
+          <option value="thal_2">Thal-2</option>
+          <option value="thal_3">Thal-3</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" id="trestbps" name="trestbps" placeholder="resting blood pressure 94 to 200">
+    </div>
+
+    <div class="form-group">
+      <input type="number" class="form-control" id="chol" name="chol" placeholder="serum cholestoral in mg/dl 126 to 564">
+    </div>
+
+    
+
+     <div class="form-group">
+      <input type="number" class="form-control" id="oldpeak" name="oldpeak" placeholder="ST depression induced by exercise relative to rest 0 to 6.2">
+    </div>
+
+
+  <input type="submit" class="btn btn-success" value="Predict">
+  </form>
+
+    </div>
+
+    		<div class="container-fluid w-50">
+			{% if prediction ==1 %}
+				<h3>Prediction: <span class='danger'>Oops! You have Heart Disease.</span></h3>
+
+			{% elif prediction ==0 %}
+				<h3>Prediction: <span class='safe'>Great! You are healthy.</span></h3>
+
+			{% endif %}
+		</div>
+
+
+
+     </div>
+ </section>
+</main>
+
+
+ {% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>IPL Score prediction</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='wine.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">IPL Score prediction</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="/iplpredict" method="POST">
+                <input class="form-input" type="text" name="overs" placeholder="Overs (>= 5.0) eg. 7.2"><br>
+                <input class="form-input" type="text" name="runs" placeholder="Runs eg. 64"><br>
+                <input class="form-input" type="text" name="wickets" placeholder="Wickets eg. 4"><br>
+                <input class="form-input" type="text" name="runs_last_5" placeholder="Runs scored in previous 5 Overs eg. 42"><br>
+                <input class="form-input" type="text" name="wickets_last_5" placeholder="Wickets taken in previous 5 Overs eg. 3"><br>
+                 <!-- Batting Team Dropdown -->
+                <select class="form-input align-center" name="bat_team">
+                    <option value="none">--- Select a Batting team ---</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Kings XI Punjab">Kings XI Punjab</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Daredevils">Delhi Daredevils</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br>
+                <!-- Bowling Team Dropdown -->
+                <select class="form-input align-center" name="bowl_team">
+                    <option value="none">--- Select a Bowling team ---</option>
+                    <option value="Mumbai Indians">Mumbai Indians</option>
+                    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                    <option value="Chennai Super Kings">Chennai Super Kings</option>
+                    <option value="Rajasthan Royals">Rajasthan Royals</option>
+                    <option value="Kings XI Punjab">Kings XI Punjab</option>
+                    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                    <option value="Delhi Daredevils">Delhi Daredevils</option>
+                    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                </select><br>
+
+
+
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+
+            <div class="result">
+                <p class="result-p">{{lower_limit}} {{upper_limit}}</p>
+            </div>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/praneeth300"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/praneeth-kumar-84a15317b"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made with ❤️ by Praneeth Kumar.</p>
+       </div>
+
+    </body>
+</html>

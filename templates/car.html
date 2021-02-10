@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Car price prediction</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Car Price Prediction</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('carpage') }}" method="POST">
+                <label for="present_price" id="present_price">Present Price:</label>
+                <input type="text" name="present_price" id="present_price" required="required" placeholder="Present price"><br>
+                <label for="kms_driven" id="kms_driven">Kms Driven:</label>
+                <input type="text" name="kms_driven" id="kms_driven" required="required" placeholder="Kms Driven"><br>
+                <label for="owner" id="owner">Owner:</label>
+                <input type="text" name="owner" id="owner" required="required" placeholder="Owner (1,0)"><br>
+                <label for="no_year" id="no_year">No of Years:</label>
+                <input type="text" name="no_year" id="no_year" required="required" placeholder="No years"><br>
+                <label for="fuel_type" id="fuel_type">Fuel type:</label>
+                <label for="fuel_type" id="fuel_type">Fuel Type:</label>
+                <select name="fuel_type" id="fuel_type" required="required">
+                    <option value="Diesel">Diesel</option>
+                    <option value="Petrol">Petrol</option>
+                </select>
+                <label for="Seller_Type_Individual" id="Seller_Type_Individual">Sellar type:</label>
+                <select name="Seller_Type_Individual" id="Seller_Type_Individual" required="required">
+                    <option value="0">Dealer</option>
+                    <option value="1">Individual</option>
+                </select>
+                <label for="transmission_manual" id="transmission_manual">Transmission</label>
+                <select name="transmission_manual" id="transmission_manual" required="required">
+                    <option value="1">Manual</option>
+                    <option value="0">Automatic</option>
+                </select>
+
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+
+            <h3>{{ prediction_text }}</h3>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/praneeth300"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/praneeth-kumar-84a15317b"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made with ❤️ by Praneeth Kumar.</p>
+       </div>
+
+    </body>
+</html>

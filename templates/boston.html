@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Boston House Price Prediction</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Boston House price prediction</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web App, Built with Flask, Deployed using Heroku.</p>
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="/predictboston" method="POST">
+                <label class="form-group" for="crim" id="crim">CRIM:</label>
+                <input type="text" name="crim" id="crim" required="required" placeholder="CRIM eg:0 to 88"><br>
+                <label for="zn" id="zn">ZN:</label>
+                <input type="text" name="zn" id="zn" required="required" placeholder="ZN eg:0 to 100"><br>
+                <label for="indus" id="indus">Indus:</label>
+                <input type="text" name="indus" id="indus" required="required" placeholder="INDUS eg:0.46 to 28"><br>
+                <label for="chas" id="chas">Chas:</label>
+                <input type="text" name="chas" id="chas" required="required" placeholder="CHAS eg:0 or 1"><br>
+                <label for="nox" id="nox">Nox:</label>
+                <input type="text" name="nox" id="nox" required="required" placeholder="NOX eg:0.87 to 0.385"><br>
+                <label for="rm" id="rm">RM:</label>
+                <input type="text" name="rm" id="rm" required="required" placeholder="RM eg:8.78 to 3.56"><br>
+                <label for="age" id="age">Age:</label>
+                <input type="text" name="age" id="age" required="required" placeholder="AGE eg:2 to 100"><br>
+                <label for="dis" id="dis">Dis:</label>
+                <input type="text" name="dis" id="dis" required="required" placeholder="DIS eg:1.12 to 13"><br>
+                <label for="rad" id="rad">Rad:</label>
+                <input type="text" name="rad" id="rad" required="required" placeholder="RAD eg:1 to 25"><br>
+                <label for="ptratio" id="ptratio">Ptratio:</label>
+                <input type="text" name="ptratio" id="ptratio" required="required" placeholder="PTRATIO eg:12 to 22"><br>
+                <label for="b" id="b">B:</label>
+                <input type="text" name="b" id="b" required="required" placeholder="B eg:0.32 to 400"><br>
+                <label for="lstat" id="lstat">Lstat:</label>
+                <input type="text" name="lstat" id="lstat" required="required" placeholder="LSTAT eg:1.0 to 40"><br>
+
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+        	</form>
+
+            <h3>{{ prediction_text }}</h3>
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/praneeth300"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/praneeth-kumar-84a15317b"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made with ❤️ by Praneeth Kumar.</p>
+       </div>
+
+    </body>
+</html>

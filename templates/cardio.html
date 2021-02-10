@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container mt-0 p-4">
+        <h1  style="text-align: center;"><strong>Cardio vascular disease prediction</strong></h1>
+
+
+ <form action="/cardiopredict" method="post">
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="ap_hi"  name="ap_hi" placeholder="Systolic blood pressure">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="ap_lo" name="ap_lo" placeholder="Diastolic blood pressure">
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="cholesterol" id="cholesterol">Cholesterol</label>
+      <select name="cholesterol" id="cholesterol" required="required">
+          <option value="1">Normal</option>
+          <option value="2">Above normal</option>
+          <option value="3">Well above normal</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="gluc" id="gluc">Glucose</label>
+      <select name="gluc" id="gluc" required="required">
+          <option value="1">Normal</option>
+          <option value="2">Above normal</option>
+          <option value="3">Well above normal</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="smoke" id="smoke">Smoke</label>
+      <select name="smoke" id="smoke" required="required">
+          <option value="0">No smoker</option>
+          <option value="1">Smoker</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="alco" id="alco">Alchohol</label>
+      <select name="alco" id="alco" required="required">
+          <option value="0">No alchohol</option>
+          <option value="1">Alchoholic</option>
+      </select>
+    </div>
+
+    <div align="center" class="form-group">
+      <label for="active" id="active">Physical activity</label>
+      <select name="active" id="active" required="required">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+      </select>
+    </div>
+
+     <div class="form-group">
+      <input type="number" class="form-control" id="age_data" name="age_data" placeholder="Age">
+    </div>
+
+      <div class="form-group">
+      <input type="text" class="form-control" id="bmi" name="bmi" placeholder="Body mass index">
+    </div>
+
+
+     <div align="center" class="form-group">
+         <label for="male" id="male">Gender</label>
+         <select name="male" id="male" required="required">
+             <option value="0">Female</option>
+             <option value="1">Male</option>
+         </select>
+     </div>
+
+  <input type="submit" class="btn btn-success" value="Predict">
+  </form>
+
+    </div>
+
+    		<div class="container-fluid w-50">
+			{% if prediction ==1 %}
+				<h3>Prediction: <span class='danger'>Oops...! You have a cardio vascular disease</span></h3>
+
+			{% elif prediction ==0 %}
+				<h3>Prediction: <span class='safe'>Congrates.... You don't have any disease.</span></h3>
+
+			{% endif %}
+		</div>
+
+
+      </div>
+ </section>
+</main>
+
+ {% endblock %}

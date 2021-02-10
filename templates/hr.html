@@ -1,0 +1,170 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container mt-0 p-0">
+      <h1  style="text-align: center;">Employee attrition Prediction</h1>
+     <!--  <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
+
+ <form action="/employeepredict" method="post">
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="Age"  name="Age" placeholder="Age">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="DailyRate" name="DailyRate" placeholder="DailyRate (102-1500)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="DistanceFromHome" name="DistanceFromHome" placeholder="DistanceFromHome (1-30)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="Education"  name="Education" placeholder="Education (1-5)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="EnvironmentSatisfaction" name="EnvironmentSatisfaction" placeholder="EnvironmentSatisfaction (1-4)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="HourlyRate" name="HourlyRate" placeholder="HourlyRate (30-100)">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="JobInvolvement" name="JobInvolvement" placeholder="JobInvolvement (1-4)">
+    </div>
+
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="JobLevel" name="JobLevel" placeholder="JobLevel (1-5)">
+    </div>
+
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="JobSatisfaction" name="JobSatisfaction" placeholder="JobSatisfaction (1-5)">
+    </div>
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="MonthlyIncome" name="MonthlyIncome" placeholder="MonthlyIncome (1000-20000)">
+    </div>
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="MonthlyRate" name="MonthlyRate" placeholder="MonthlyRate (2000-30000)">
+    </div>
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="NumCompaniesWorked" name="NumCompaniesWorked" placeholder="NumCompaniesWorked (0-10)">
+    </div>
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="PerformanceRating" name="PerformanceRating" placeholder="PerformanceRating (1-5)">
+    </div>
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="RelationshipSatisfaction" name="RelationshipSatisfaction" placeholder="RelationshipSatisfaction (1-5)">
+    </div>
+
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="StockOptionLevel" name="StockOptionLevel" placeholder="StockOptionLevel (0-3)">
+    </div>
+
+
+     <div class="form-group">
+      <input type="text" class="form-control" id="TotalWorkingYears" name="TotalWorkingYears" placeholder="TotalWorkingYears (0-40)">
+    </div>
+
+
+     <div align="center" class="form-group">
+          <select name="BusinessTravel" id="BusinessTravel" required="required">
+              <option value="BusinessTravel_Travel_Frequently">Travel Frequently</option>
+              <option value="BusinessTravel_Travel_Rarely">Travel Rarely</option>
+          </select>
+    </div>
+
+
+      <div align="center" class="form-group">
+          <select name="Department" id="Department" required="required">
+              <option value="Department_Research_Development">Reaseach& Developement</option>
+              <option value="Department_Sales">Sales</option>
+          </select>
+    </div>
+
+     <div align="center" class="form-group">
+          <select name="EducationField" id="EducationField" required="required">
+              <option value="EducationField_Life_Sciences">Life sciences</option>
+              <option value="EducationField_Marketing">Marketing</option>
+              <option value="EducationField_Medical">Medical</option>
+              <option value="EducationField_Other">Other</option>
+              <option value="EducationField_Technical_Degree">Technical degree</option>
+          </select>
+    </div>
+
+     <div align="center" class="form-group">
+         <select name="Gender_Male" id="Gender_Male">
+             <option value="1">Male</option>
+             <option value="0">Female</option>
+         </select>
+     </div>
+
+     <div align="center" class="form-group">
+         <select name="JobRole" id="JobRole">
+             <option value="JobRole_Human Resources">Human resources</option>
+             <option value="JobRole_Laboratory_Technician">Laboratory Technician</option>
+             <option value="JobRole_Manager">Manager</option>
+             <option value="JobRole_Manufacturing_Director">Manufacturing Director</option>
+             <option value="JobRole_Research_Director">Reasearch director</option>
+             <option value="JobRole_Research_Scientist">Reasearch scientist</option>
+             <option value="JobRole_Sales_Executive">Sales executive</option>
+             <option value="JobRole_Sales_Representative">Sales representative</option>
+
+         </select>
+
+     </div>
+
+      <div align="center" class="form-group">
+          <select name="MaritalStatus" id="MaritalStatus">
+              <option value="MaritalStatus_Married">Married</option>
+              <option value="MaritalStatus_Single">Single</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" id="OverTime_Yes" name="OverTime_Yes" placeholder="Overtime (1,0)">
+      </div>
+
+     </div>
+
+  <input type="submit" class="btn btn-success" value="Predict">
+  </form>
+
+    </div>
+
+    		<div class="container-fluid w-50">
+			{% if prediction==1 %}
+				<h3>Prediction: <span class='danger'>Sorry to say that ! Your fired</span></h3>
+
+			{% elif prediction==0 %}
+				<h3>Prediction: <span class='safe'>Congrates..! Your in </span></h3>
+
+			{% endif %}
+		</div>
+
+
+
+
+
+  </section>
+
+  </main>
+
+
+
+
+ {% endblock %}

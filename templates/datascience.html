@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<main role="main">
+
+  <section class="jumbotron mt-2 p-0">
+
+    <div class="container mt-0 p-0">
+      <h1  style="text-align: center;">Data science salary Prediction</h1>
+     <!--  <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p> -->
+
+ <form action="/salarypredict" method="post">
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="company_founded"  name="company_founded" placeholder="Company founded">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="company_size" name="company_size" placeholder="Company size">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="company_rating" name="company_rating" placeholder="Company rating">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="revenue"  name="revenue" placeholder="Revenue">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="competitors" name="competitors" placeholder="Competitors">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="Job_seniority" name="Job_seniority" placeholder="Job seniority">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="Job_in_headquarters" name="Job_in_headquarters" placeholder="Job in headquarters">
+    </div>
+
+
+     <div class="form_group" align="center">
+         <label for="jobs" id="jobs">Jobs</label>
+         <select name="jobs" id="jobs" required="required">
+             <option value="Python_job">Python</option>
+             <option value="Excel_job">Excel</option>
+             <option value="Sql_job">Sql</option>
+             <option value="Tableu">Python</option>
+         </select>
+     </div>
+
+     <div class="form_group" align="center">
+         <label for="ownership" id="ownership">Ownership</label>
+         <select name="ownership" id="ownership" required="required">
+             <option value="Government">Government</option>
+             <option value="Hospital">Hospital</option>
+             <option value="Nonprofit_Organization">Nonprofit Organization</option>
+             <option value="Other_Organization">Other Organization</option>
+             <option value="Private">Private</option>
+             <option value="Public">Public</option>
+             <option value="Subsidiary_or_Business_Segment">Subsidiary or Business_Segment</option>
+         </select>
+     </div>
+
+     <div class="form_group" align="center">
+         <label for="job_title" id="job_title">Job title</label>
+         <select name="job_title" id="job_title" required="required">
+             <option value="Job_title_data analyst">Data analyst</option>
+             <option value="Job_title_data_engineer">Data_engineer</option>
+             <option value="Job_title_data_scientist">Data scientist</option>
+             <option value="Job_title_director">Director</option>
+             <option value="Job_title_manager">Manager</option>
+             <option value="Job_title_mle">Mle</option>
+             <option value="Job_title_other">Other</option>
+         </select>
+     </div>
+
+     <div class="form_group" align="center">
+         <label for="sector" id="sector">Sector</label>
+         <select name="sector" id="sector" required="required">
+             <option value="sector_Aerospace & Defense">Aerospace & Defense</option>
+             <option value="sector_Biotech & Pharmaceuticals">Biotech & Pharmaceuticals</option>
+             <option value="sector_Business Services">Business Services</option>
+             <option value="sector_Education">Education</option>
+             <option value="sector_Finance">Finance</option>
+             <option value="sector_Health Care">Health Care</option>
+             <option value="sector_Information Technology">Information Technology</option>
+             <option value="sector_Insurance">Insurance</option>
+             <option value="sector_Manufacturing">Manufacturing</option>
+             <option value="sector_Others">Others</option>
+             <option value="sector_Retail">Retail</option>
+         </select>
+     </div>
+
+
+  <input align="center" type="submit" class="btn btn-success" value="Predict">
+  </form>
+
+    </div>
+
+    		<div  align="center" style="color: black" class="container-fluid w-50">
+                <h3 <strong>{{ prediction_text }}</strong></h3>
+		</div>
+
+
+
+
+
+  </section>
+
+  </main>
+
+
+
+
+ {% endblock %}
